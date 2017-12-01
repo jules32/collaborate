@@ -1,13 +1,7 @@
 ---
-<<<<<<< HEAD
-title: "Collaborate"
-author: "Julie"
-date: "12/1/2017"
-=======
-title: "collab"
+title: "collaborate"
 author: "Ben Best"
 date: "December 1, 2017"
->>>>>>> fbd4caf43986b413b310bc7407d142816ddedca4
 output: html_document
 ---
 
