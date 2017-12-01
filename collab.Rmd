@@ -1,10 +1,20 @@
 ---
 title: "Collaborate"
-author: "Julie"
+author: "Julie & Ben"
 date: "12/1/2017"
-output: html_document
+output: ioslides_presentation
 ---
 
-# This is our analysis. 
+## This is our analysis. 
 
 Julie and Ben. 
+
+## An interactive map
+
+```{r}
+library(leaflet)
+leaflet() %>% 
+  addProviderTiles(providers$Esri.OceanBasemap) %>%
+  addMarkers(-121.788163, 36.802151, label = "R rocks at MBARI!")
+```
+
