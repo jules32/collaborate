@@ -18,3 +18,24 @@ leaflet() %>%
   addMarkers(-121.788163, 36.802151, label = "R rocks at MBARI!")
 ```
 
+## NYC Flight exploration
+
+```{r}
+library(tidyverse)
+library(nycflights13) # install.packages("nycflights13")
+
+flights
+
+## Jan 1 data
+flights %>% 
+  filter(month == 1,
+         day == 1)
+
+
+```
+
+
+
+
+
+
