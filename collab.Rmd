@@ -39,3 +39,19 @@ tbl = gapminder %>%
 tbl$data[[1]]
 ```
 
+## NYC Flight exploration
+
+```{r}
+library(tidyverse)
+library(nycflights13) # install.packages("nycflights13")
+
+flights
+
+## Jan 1 data
+flights %>% 
+  filter(month == 1,
+         day == 1)
+
+
+```
+
