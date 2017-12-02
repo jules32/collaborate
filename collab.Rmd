@@ -18,3 +18,27 @@ leaflet() %>%
   addMarkers(-121.788163, 36.802151, label = "R rocks at MBARI!")
 ```
 
+## Equation or bust
+
+$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
+
+
+## Tibble awesomeness
+
+```{r}
+library(tidyverse)
+
+gapminder <- read_csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv')
+
+
+gapminder %>%
+  group_by(country) %>%
+  nest() %>%
+  mutate(
+    mdl = map(data, function(x) lm(gdpPercap ~ year, data = x)),
+    gplot = ggplot2(data, aes()))
+
+tbl$data[[1]]
+  
+```
+
