@@ -30,15 +30,12 @@ library(tidyverse)
 
 gapminder <- read_csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv')
 
-
-gapminder %>%
+tbl = gapminder %>%
   group_by(country) %>%
   nest() %>%
   mutate(
-    mdl = map(data, function(x) lm(gdpPercap ~ year, data = x)),
-    gplot = ggplot2(data, aes()))
+    mdl = map(data, function(x) lm(gdpPercap ~ year, data = x)))
 
 tbl$data[[1]]
-  
 ```
 

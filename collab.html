@@ -120,8 +120,73 @@ leaflet() %&gt;%
   addProviderTiles(providers$Esri.OceanBasemap) %&gt;%
   addMarkers(-121.788163, 36.802151, label = &quot;R rocks at MBARI!&quot;)</pre>
 
-<div id="htmlwidget-bb1bdefe10da55d740dd" style="width:720px;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bb1bdefe10da55d740dd">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addMarkers","args":[36.802151,-121.788163,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,"R rocks at MBARI!",null,null]}],"limits":{"lat":[36.802151,36.802151],"lng":[-121.788163,-121.788163]}},"evals":[],"jsHooks":[]}</script></article></slide>
+<div id="htmlwidget-eb37aecd15b1f27c3fc3" style="width:720px;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eb37aecd15b1f27c3fc3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addMarkers","args":[36.802151,-121.788163,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,"R rocks at MBARI!",null,null]}],"limits":{"lat":[36.802151,36.802151],"lng":[-121.788163,-121.788163]}},"evals":[],"jsHooks":[]}</script>
+
+</article></slide><slide class=''><hgroup><h2>Equation or bust</h2></hgroup><article  id="equation-or-bust">
+
+<p>\[\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Tibble awesomeness</h2></hgroup><article  id="tibble-awesomeness">
+
+<pre class = 'prettyprint lang-r'>library(tidyverse)</pre>
+
+<pre >## Warning: package &#39;tidyverse&#39; was built under R version 3.4.2</pre>
+
+<pre >## ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──</pre>
+
+<pre >## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
+## ✔ tibble  1.3.4          ✔ dplyr   0.7.4     
+## ✔ tidyr   0.7.2          ✔ stringr 1.2.0     
+## ✔ readr   1.1.1          ✔ forcats 0.2.0</pre>
+
+<pre >## Warning: package &#39;tibble&#39; was built under R version 3.4.1</pre>
+
+<pre >## Warning: package &#39;tidyr&#39; was built under R version 3.4.2</pre>
+
+<pre >## Warning: package &#39;purrr&#39; was built under R version 3.4.2</pre>
+
+<pre >## Warning: package &#39;dplyr&#39; was built under R version 3.4.2</pre>
+
+<pre >## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</pre>
+
+<pre class = 'prettyprint lang-r'>gapminder &lt;- read_csv(&#39;https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv&#39;)</pre>
+
+<pre >## Parsed with column specification:
+## cols(
+##   country = col_character(),
+##   year = col_integer(),
+##   pop = col_double(),
+##   continent = col_character(),
+##   lifeExp = col_double(),
+##   gdpPercap = col_double()
+## )</pre>
+
+<pre class = 'prettyprint lang-r'>tbl = gapminder %&gt;%
+  group_by(country) %&gt;%
+  nest() %&gt;%
+  mutate(
+    mdl = map(data, function(x) lm(gdpPercap ~ year, data = x)))
+
+tbl$data[[1]]</pre>
+
+<pre >## # A tibble: 12 x 5
+##     year      pop continent lifeExp gdpPercap
+##    &lt;int&gt;    &lt;dbl&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##  1  1952  8425333      Asia  28.801  779.4453
+##  2  1957  9240934      Asia  30.332  820.8530
+##  3  1962 10267083      Asia  31.997  853.1007
+##  4  1967 11537966      Asia  34.020  836.1971
+##  5  1972 13079460      Asia  36.088  739.9811
+##  6  1977 14880372      Asia  38.438  786.1134
+##  7  1982 12881816      Asia  39.854  978.0114
+##  8  1987 13867957      Asia  40.822  852.3959
+##  9  1992 16317921      Asia  41.674  649.3414
+## 10  1997 22227415      Asia  41.763  635.3414
+## 11  2002 25268405      Asia  42.129  726.7341
+## 12  2007 31889923      Asia  43.828  974.5803</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
