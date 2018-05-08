@@ -6,6 +6,6 @@ Collaborating with my collaborator
 What next?
 
 My name is Julie
-And Ben's name is Ben
+And Jamie's name is Jamie
 
 My name is jamie
